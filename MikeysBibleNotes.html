@@ -28,6 +28,7 @@
 <div id="myData"></div>
     <script>
 	function get_data() {
+	jsondata = '';
 	fetch("./MikeysBibleNotes.json")
 	.then(response => {
 	   return response.json();
