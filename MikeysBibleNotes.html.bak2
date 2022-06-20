@@ -4,23 +4,12 @@
 <title>JavaScript - read JSON from URL</title>
 	<!-- link to main stylesheet -->
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script type="text/JavaScript">
-	$.ajax({
-		type:"GET",
-		url:"MikeysBibleNotes.json",
-		success:function(response)
-		{
-			// console.log(response);
-			$("div#myData").append("Title:"+response.Title+"<br>Topics:"+response.Topics+"<br>Topic:"+response.Topic)
-		}
-	});	
-	</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	
 
 </head>
 
 <body>
-	
 	<nav>
 	<ul>
         	<li><a href="/">Home</a></li>
@@ -39,7 +28,7 @@
 <div id="myData"></div>
     <script>
 
-/*		fetch("./MikeysBibleNotes.json")
+		fetch("./MikeysBibleNotes.json")
 			.then(response => {
 			return response.json();
 			})
@@ -55,15 +44,16 @@
 			var div = document.createElement("div");
 			div.innerHTML = mainContainer;
 			
-
+			/*
             for (var i = 0; i < 10; i++) {
                 var div = document.createElement("div");
                 div.innerHTML = 'Title: ' + data[i].Title + ' Topics: ' + data[i].Topics + ' Topic: ' + data[i].Topic;
                 mainContainer.appendChild(div);
             }
-			
+			*/
         }
-*/
+
+
     </script>
 	
 	<footer>
