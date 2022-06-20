@@ -26,24 +26,24 @@
 	    
 	    
 const myList = document.querySelector('ul');
-const myRequest = new Request('products.json');
+const myRequest = new Request('MikeysBibleNotes.json');
 
 fetch(myRequest)
   .then(response => response.json())
   .then(data => {
-    for (const product of data.products) {
+    for (const topic of data.Topics) {
       let listItem = document.createElement('li');
       listItem.appendChild(
         document.createElement('strong')
-      ).textContent = product.Name;
+      ).textContent = topic.Topic;
       listItem.append(
-        ` can be found in ${
-          product.Location
-        }. Cost: `
+        ` includes subtopic ${
+          topic.Subtopic
+        }. Mike's_Note: `
       );
       listItem.appendChild(
         document.createElement('strong')
-      ).textContent = `£${product.Price}`;
+      ).textContent = topic.Mike's_Note;
       myList.appendChild(listItem);
     }
   })
