@@ -22,6 +22,7 @@
 			<p>I'm here to edit <em>JSON data</em>. <a href="/about">Read more ...</a></p>
    	</div><!-- /.blurb -->
 	</div><!-- /.container -->
+
 <script>
 	    
 	    
@@ -38,12 +39,12 @@ fetch(myRequest)
       ).textContent = topic.Topic;
       listItem.append(
         ` includes Subtopic ${
-          topic.Subtopic
+          topic.Notes.Subtopic
         }. Mike's_Note: `
       );
       listItem.appendChild(
         document.createElement('strong')
-      ).textContent = topic.Mikes_Note;
+      ).textContent = topic.Notes.Mikes_Note;
       myList.appendChild(listItem);
     }
   })
