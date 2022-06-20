@@ -11,8 +11,8 @@
 		url:"MikeysBibleNotes.json",
 		success:function(response)
 		{
-			// console.log(response);
-			$("div#myData").append("Title:"+response.Title+"<br>Topics:"+response.Topics+"<br>Topic:"+response.Topic)
+			console.log(response);
+			$("div#myData").append("Title:" + response.Title + "<br>Topics:" + response.Topics + "<br>Notesc:" + response.Notes + "<br>Topic:" + response.Topic + "<br>Subtopic:" + response.Subtopic + "");
 		}
 	});	
 	</script>
