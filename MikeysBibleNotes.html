@@ -39,7 +39,7 @@
             var mainContainer = document.getElementById("myData");
             for (var i = 0; i < data.length; i++) {
                 var div = document.createElement("div");
-                div.innerHTML = data[i];
+                div.innerHTML = data[i].Title + ' &ndsp; ' + data[i].Topics;
                 mainContainer.appendChild(div);
             }
         }
