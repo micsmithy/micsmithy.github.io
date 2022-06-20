@@ -27,13 +27,15 @@
 
 <div id="myData"></div>
     <script>
-	
+	function(get_data){
 	fetch("./MikeysBibleNotes.json")
 	.then(response => {
 	   return response.json();
 	})
-	.then(jsondata => return jsondata);
+	.then(jsondata => console.log(jsondata));
 	    
+	    return jsondata;
+}
 
 
 /* 
