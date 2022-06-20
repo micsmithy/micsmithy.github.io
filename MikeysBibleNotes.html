@@ -32,24 +32,16 @@
 			.then(response => {
 			return response.json();
 			})
-			.then(jsondata => console.log(jsondata));
-			
-	
 
-
-        fetch('./MikeysBibleNotes.json')
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
+			.then(data => {
                 appendData(data);
             })
-            .catch(function (err) {
-                console.log('error: ' + err);
-            });
+			.then(data => console.log(data));
+
+
         function appendData(data) {
             var mainContainer = document.getElementById("myData");
-			return mainContainer;
+			div.innerHTML = mainContainer;
 			
 			/*
             for (var i = 0; i < 10; i++) {
