@@ -27,7 +27,7 @@
 
 <div id="myData"></div>
     <script>
-	function my_function() {
+	function get_data() {
 	fetch("./MikeysBibleNotes.json")
 	.then(response => {
 	   return response.json();
@@ -36,6 +36,7 @@
 	    
 	    return jsondata;
 }
+get_data();
 
 
 /* 
