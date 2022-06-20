@@ -4,16 +4,36 @@
 <title>JavaScript - read JSON from URL</title>
 	<!-- link to main stylesheet -->
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script type="text/JavaScript">
 	$.ajax({
 		type:"GET",
 		url:"MikeysBibleNotes.json",
-		success:function(response)
+		// success:function(response)
+		success:function(data)
 		{
-			console.log(response);
-			$("div#myData").append("Title:" + response.Title + "<br>Topics:" + response.Topics + "<br>Notesc:" + response.Notes + "<br>Topic:" + response.Topic + "<br>Subtopic:" + response.Subtopic + "");
-		}
+			console.log(data);
+			// $("div#myData").append("Title:" + response.Title + "<br>Topics:" + response.Topics + "<br>Notesc:" + response.Notes + "<br>Topic:" + response.Topic + "<br>Subtopic:" + response.Subtopic + "");
+
+			var items = [];
+
+			$.each(data, function(key, val) {
+
+			items.push('<li id="' + key + '">' + val + '</li>');    
+
+			});
+
+			$('<ul/>', {
+			'class': 'interest-list',
+			html: items.join('')
+			}).appendTo('div#myData');
+
+			},
+			statusCode: {
+			404: function() {
+			alert('There was a problem with the server.  Try again soon!');
+			}
+			}
 	});	
 	</script>
 
