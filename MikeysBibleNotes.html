@@ -23,34 +23,28 @@
    	</div><!-- /.blurb -->
 	</div><!-- /.container -->
 
-<script>
-	    
-	    
-const myList = document.querySelector('ul');
-const myRequest = new Request('MikeysBibleNotes.json');
-
-fetch(myRequest)
-  .then(response => response.json())
-  .then(data => {
-    for (const topic of data.Topics) {
-      let listItem = document.createElement('li');
-      listItem.appendChild(
-        document.createElement('strong')
-      ).textContent = topic.Topic;
-      listItem.append(
-        ` includes Subtopic ${
-          topic.Notes.Subtopic
-        }. Mike's_Note: `
-      );
-      listItem.appendChild(
-        document.createElement('strong')
-      ).textContent = topic.Notes.Mikes_Note;
-      myList.appendChild(listItem);
-    }
-  })
-  .catch(console.error);
-
-</script>
+<div id="myData"></div>
+    <script>
+        fetch('MikeysBibleNotes.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) {
+            var mainContainer = document.getElementById("myData");
+            for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = 'Topic: ' + data[i].Subtopic + ' ' + data[i].Mikes_Note;
+                mainContainer.appendChild(div);
+            }
+        }
+    </script>
+	
 	<footer>
     	<ul>
         	<li><a href="mailto:micsmithy@gmail.com">email</a></li>
