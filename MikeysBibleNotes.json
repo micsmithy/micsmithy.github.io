@@ -1,0 +1,277 @@
+{
+   "Title": "Mike Smith's Bible Notes",
+   "Author": "Michael (\"Mike\", \"Mikey\") Smith",
+   "Email": "micsmithy@gmail.com",
+   "Copyright": "2022",
+   "Topics": [
+      {
+         "Topic": "Character of God",
+         "Notes": [
+            {
+               "Subtopic": "Delights to show mercy",
+               "Mike's_Note": "God delights to forgive and show steadfast love. It brings Him joy.",
+               "Ref": "Micah 7:18",
+               "Tags": [
+                  "mercy",
+                  "forgiveness",
+                  "love",
+                  "mercy",
+                  "joy",
+                  "delight",
+                  "anger (temporary)"
+               ],
+               "Bible_NASB": "Who is a God like You, who pardons wrongdoing And passes over a rebellious act of the remnant of His possession? He does not retain His anger forever, Because He delights in mercy."
+            }
+         ]
+      },
+      {
+         "Topic": "Companionship",
+         "Notes": [
+            {
+               "Mike's_Note": "God created man in a perfect world where man walked and communicated with God. What else could he possibly need? Yet, to use God's words, this situation was 'not good.' Man also needed human companionship.",
+               "Ref": "Genesis 2:18",
+               "Tags": [
+                  "company",
+                  "alone",
+                  "relationship",
+                  "companionship",
+                  "love",
+                  "not good"
+               ],
+               "Subtopic": "Not good to be alone",
+               "Bible_VOICE": "It is not good for the man to be alone, so I will create a companion for him, a perfectly suited partner."
+            },
+            {
+               "Mike's_Note": "2nd Note.",
+               "Tags": [],
+               "Subtopic": "a good Topic"
+            },
+            {
+               "Mike's_Note": "3rd Note",
+               "Subtopic": "title"
+            }
+         ],
+         "Keys_Refs": [
+            "Genesis 2:18",
+            "1 John 1:3,6-7"
+         ]
+      },
+      {
+         "Topic": "Emotions",
+         "Notes": [
+            {
+               "Subtopic": "Heart, Hardened",
+               "Ref": "Ephesians 4:18",
+               "Bible_NIV": "They are darkened in their understanding and separated from the life of God because of the ignorance that is in them due to the hardening (pōrōsin, 4457) of their hearts (kardias, 2588).",
+               "Cross_Refs": "Ephesians 4:19",
+               "Note_1": {
+                  "Mike's_Note": "To become hardened is to close ourselves off from feeling and emotions; the feelings of ourselves as well as the feelings of others.",
+                  "source_Note": "pōrōsin (4457) = a covering with a callous, blindness. \"originally petrifaction, hardness and then the result of this, i.e. metaphorically applied to organs of feeling, meaning insensibility, numbness, obtuseness, dulling of the faculty of perception, deadness\" (Souter).",
+                  "source_text": "BibleHub",
+                  "source_link": "https://biblehub.com/greek/4457.htm"
+               },
+               "Note_2": {
+                  "Mike's_Note": "Our heart or core is the essence of who we are; the seat of our emotions and affections, as well as our thoughts",
+                  "source_Note": "kardias (2588) = lit: the heart; mind, character, inner self, will, intention, center. Thayer's Greek Lexicon:  b. the center and seat of spiritual life, \"the soul or mind, as it is the fountain and seat of the thoughts, passions, desires, appetites, affections, purposes, endeavors\" (so in English heart, inner man, etc.)",
+                  "source_text": "BibleHub",
+                  "source_link": "https://biblehub.com/greek/2588.htm"
+               },
+               "Tags": [
+                  "Tag1",
+                  "Tag2"
+               ]
+            },
+            {
+               "Subtopic": "Loss of feeling leads to sensuality",
+               "Tags": [
+                  "Tag1",
+                  "Tag2"
+               ],
+               "Ref": "Ephesians 4:19",
+               "Note_1": "apalgeó = loss of feeling of pain or grief.",
+               "Note_2": "aselgeia = violent spite which rejects restraint and indulges in lawless insolence",
+               "Bible_NIV": "Having lost all sensitivity (apalgeó), they have given themselves over to sensuality (aselgeia) so as to indulge in every kind of impurity, and they are full of greed."
+            },
+            {
+               "Subtopic": "sensual wisdom",
+               "Tags": [
+                  "Tag1",
+                  "Tag2"
+               ],
+               "Ref": "James 3:15",
+               "Mike's_Note": "sensual/natural G5591 psuchikos = natural, of the soul or mind. Such wisdom does not come down from above, but is earthly, unspiritual [soulish, worldly, focussed on physical senses], devilish.The context of this wisdom is jealousy and selfishness. Be careful not to over-emphasize and demonize human emotions in this verse."
+            }
+         ]
+      },
+      {
+         "Topic": "Knowing God",
+         "Notes": [
+            {
+               "Subtopic": "Knowing God is eternal life",
+               "Mike's_Note": "It's not enough to know ABOUT God. He wants us to KNOW HIM.",
+               "Ref": [
+                  "John 17:3"
+               ]
+            },
+            {
+               "Subtopic": "Created in God's Image",
+               "Mike's_Note": "We are created in the Image of God and in His likeness",
+               "Ref": [
+                  "Genesis 1:26-31",
+                  "Genesis 9:6",
+                  "James 3:9"
+               ]
+            },
+            {
+               "Subtopic": "Wait in silence for God alone for hope",
+               "Bible_ESV": "For God alone, O my soul, wait in silence, for my hope is from him.",
+               "Cross_Refs": "Psalm 46:10; 62:1; Isaiah 30:15",
+               "Ref": "Psalm 62:5",
+               "Tags": [
+                  "wait",
+                  "silence",
+                  "hope",
+                  "quietness"
+               ]
+            },
+            {
+               "Subtopic": "Wait in silence for God alone for salvation",
+               "Bible_ESV": "For God alone my soul waits in silence; from him comes my salvation.",
+               "Cross_Refs": "Psalm 46:10; 62:5; Isaiah 30:15",
+               "Ref": "Psalm 62:1",
+               "Tags": [
+                  "wait",
+                  "silence",
+                  "salvation",
+                  "quietness"
+               ]
+            },
+            {
+               "Subtopic": "Be still and know God",
+               "Bible_ESV": "Be still, and know that I am God. I will be exalted among the nations, I will be exalted in the earth!",
+               "Cross_Refs": "Psalm 62:1, 5; Isaiah 30:15",
+               "Ref": "Psalm 46:10",
+               "Tags": [
+                  "still",
+                  "know",
+                  "God",
+                  "exalted",
+                  "nations",
+                  "earth"
+               ]
+            }
+         ],
+         "Keys_Refs": []
+      },
+      {
+         "Topic": "Quietness",
+         "Notes": [
+            {
+               "Subtopic": "Salvation from restful trust",
+               "Bible_ESV": "For thus said the Lord God, the Holy One of Israel, In returning and rest you shall be saved; in quietness and in trust shall be your strength. But you were unwilling",
+               "Cross_Refs": "Psalm 46:10; 62:1,5",
+               "Ref": "Isaiah 30:15",
+               "Tags": [
+                  "return",
+                  "rest",
+                  "saved",
+                  "salvation",
+                  "quietness",
+                  "silence",
+                  "trust",
+                  "strength",
+                  "will",
+                  "unwilling"
+               ]
+            },
+            {
+               "Subtopic": "Wait in silence for God alone",
+               "Bible_ESV": "For God alone, O my soul, wait in silence, for my hope is from him.",
+               "Cross_Refs": "Psalm 46:10; 62:1; Isaiah 30:15",
+               "Ref": "Psalm 62:5",
+               "Tags": [
+                  "wait",
+                  "silence",
+                  "hope",
+                  "quietness"
+               ]
+            },
+            {
+               "Subtopic": "Wait in silence for God alone",
+               "Bible_ESV": "For God alone my soul waits in silence; from him comes my salvation.",
+               "Cross_Refs": "Psalm 46:10; 62:5; Isaiah 30:15",
+               "Ref": "Psalm 62:1",
+               "Tags": [
+                  "wait",
+                  "silence",
+                  "salvation",
+                  "quietness"
+               ]
+            },
+            {
+               "Subtopic": "Be still and know God",
+               "Bible_ESV": "Be still, and know that I am God. I will be exalted among the nations, I will be exalted in the earth!",
+               "Cross_Refs": "Psalm 62:1, 5; Isaiah 30:15",
+               "Ref": "Psalm 46:10",
+               "Tags": [
+                  "still",
+                  "know",
+                  "God",
+                  "exalted",
+                  "nations",
+                  "earth"
+               ]
+            }
+         ]
+      },
+      {
+         "Topic": "Restoration of All Thing",
+         "Notes": [
+            {
+               "Subtopic": "self-condemned",
+               "Ref": "Ephesians 4:18",
+               "Bible_NIV": "They are darkened in their understanding and separated from the life of God because of the ignorance that is in them due to the hardening of their hearts.",
+               "Tags": [
+                  "Tag1",
+                  "Tag2"
+               ]
+            },
+            {
+               "Tags": [
+                  "Tag1",
+                  "Tag2"
+               ]
+            },
+            {
+               "Tags": [
+                  "Tag1",
+                  "Tag2"
+               ]
+            }
+         ]
+      },
+      {
+         "Topic": "Spirit, Fruit of",
+         "Notes": [
+            {
+               "Subtopic": "Seek Peace",
+               "Ref": "1 Peter 3:11",
+               "Bible_NIV (copy)": "They must turn from evil and do good; they must seek peace and pursue it.",
+               "Cross_Refs": "Psalm 34:14",
+               "Mike's_Note": "Psalm 34:14 - Seek peace (shalom) and pursue it. Part of shalom's meaning is \"4. peace, quiet, tranquility, contentment\" (Brown-Driver-Briggs Hebrew and English Lexicon, Unabridged, Electronic Database.)  1 Peter 3:11 - Seek peace (eiréné) and pursue it. Eiréné definition: one, peace, quietness, rest. Also \"5. according to a conception distinctly peculiar to Christianity, \"the tranquil state of a soul assured of its salvation through Christ, and so fearing nothing from God and content with its earthly lot, of whatsoerer sort that is\" (THAYER'S GREEK LEXICON, Electronic Database. Copyright © 2002, 2003, 2006, 2011 by Biblesoft, Inc.)",
+               "Tags": [
+                  "Tag1",
+                  "Tag2"
+               ]
+            },
+            {
+               "Tags": [
+                  "Tag1",
+                  "Tag2"
+               ]
+            }
+         ]
+      }
+   ],
+   "Progress": "I've copied all my Notes from Biblegateway.  Still BlueletterBible and Youversion (bible.com) to go."
+}
