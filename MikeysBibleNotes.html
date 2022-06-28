@@ -4,94 +4,18 @@
 <title>JavaScript - read JSON from URL</title>
 	<!-- link to main stylesheet -->
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script type="text/JavaScript">
-	$.ajax({
-		type:"GET",
-		url:"MikeysBibleNotes.json",
-		// success:function(response)
-		success:function(data)
-		{
-			console.log(data);
-			// $("div#myData").append("Title:" + response.Title + "<br>Topics:" + response.Topics + "<br>Notesc:" + response.Notes + "<br>Topic:" + response.Topic + "<br>Subtopic:" + response.Subtopic + "");
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="/path/to/jsonedit/json-edit.js"></script>
+	<link href="/path/to/jsonedit/json-edit.css" rel="stylesheet" />
 
-			var items = [];
-
-			$.each(data, function(key, val) {
-
-			items.push('<li id="' + key + '">' + val + '</li>');    
-
-			});
-
-			$('<ul/>', {
-			'class': 'interest-list',
-			html: items.join('')
-			}).appendTo('div#myData');
-
-			},
-			statusCode: {
-			404: function() {
-			alert('There was a problem with the server.  Try again soon!');
-			}
-			}
-	});	
-	</script>
+	
+	
+	
 
 </head>
 
 <body>
 	
-	<nav>
-	<ul>
-        	<li><a href="/">Home</a></li>
-        	<li><a href="/about">About</a></li>
-		<li><a href="/cv">CV</a></li>
-        	<li><a href="/blog">Blog</a></li>
-    	</ul>
-	</nav>
-	<div class="container">
-    	<div class="blurb">
-       		<h1>Mike's Bible Notes</h1>
-			<p>I'm here to edit <em>JSON data</em>. <a href="/about">Read more ...</a></p>
-   	</div><!-- /.blurb -->
-	</div><!-- /.container -->
-
-<div id="myData"></div>
-    <script>
-
-/*		fetch("./MikeysBibleNotes.json")
-			.then(response => {
-			return response.json();
-			})
-
-			.then(function (data) {
-                appendData(data);
-            })
-			.then(data => console.log(data));
-
-
-        function appendData(data) {
-            var mainContainer = document.getElementById("myData");
-			var div = document.createElement("div");
-			div.innerHTML = mainContainer;
-			
-
-            for (var i = 0; i < 10; i++) {
-                var div = document.createElement("div");
-                div.innerHTML = 'Title: ' + data[i].Title + ' Topics: ' + data[i].Topics + ' Topic: ' + data[i].Topic;
-                mainContainer.appendChild(div);
-            }
-			
-        }
-*/
-    </script>
-	
-	<footer>
-    	<ul>
-        	<li><a href="mailto:micsmithy@gmail.com">email</a></li>
-        	<li><a href="https://github.com/micsmithy">github.com/micsmithy</a></li>
-		</ul>
-	</footer>
 	
 
 	
