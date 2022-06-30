@@ -24,7 +24,7 @@
             },
             {
                "Subtopic": "Justice through Mercy",
-               "Mikes_Note": "Spares the wicked to save the righteous",
+               "Mike's_Note": "Spares the wicked to save the righteous",
                "Ref": "Genesis 18:25-26",
                "Tags": [
                   "justice",
@@ -180,8 +180,8 @@
             {
                "Subtopic": "Salvation from restful trust",
                "Bible_ESV": "For thus said the Lord God, the Holy One of Israel, In returning and rest you shall be saved; in quietness and in trust shall be your strength. But you were unwilling",
-               "Cross_Refs": "Psalm 46:10; 62:1,5",
                "Ref": "Isaiah 30:15",
+               "Cross_Refs": "Psalm 46:10; 62:1,5",
                "Tags": [
                   "return",
                   "rest",
@@ -193,6 +193,19 @@
                   "strength",
                   "will",
                   "unwilling"
+               ]
+            },
+            {
+               "Subtopic": "God gives sleep to us. Stop overworking",
+               "Bible_NIV": "In vain you rise early and stay up late, toiling for food to eat— for he grants sleep to those he loves.",
+               "Ref": "Psalm 137:2",
+               "Cross_Refs": "",
+               "Tags": [
+                  "work",
+                  "rest",
+                  "sleep",
+                  "early start",
+                  "late finish"
                ]
             },
             {
