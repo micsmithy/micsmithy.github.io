@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://www.jqueryscript.net/demo/form-json-editor/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="./files/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" async="" src="./files/ga.js"></script><script src="./files/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+<title>Form Based JSON Editor Example</title>
+    <script src="./files/json-edit.js"></script>
+    <link href="./files/json-edit.css" rel="stylesheet" type="text/css">
+
+    <script>
+
+        var s = {
+            "title": "json schema sample",
+            "type": "object",
+            "properties": {
+                "stringField": {
+                    "title": "String Field",
+                    "type": "string",
+                    "minLength": 5,
+                    "maxLength": 10,
+                    "ui": {
+                        "placeholderHint": "Enter string",
+                        "hoverHint": "this is a text for test the mouse hover",
+                        "inlineHint": "this is a text to show we can additional text below the input box",
+                        "validationHint": "length of your text must be >4 and <11 characters"
+                    }
+                },
+                "colorField": {
+                    "title": "Color Field",
+                    "type": "string",
+                    "ui": {
+                        "editor": "color"
+                    }
+                },
+                "dateField": {
+                    "title": "Date Field",
+                    "type": "string",
+                    "ui": {
+                        "editor": "date"
+                    }
+                },
+                "numberField": {
+                    "title": "Number Field",
+                    "type": "number",
+                    "minimum": 5,
+                    "maximum": 10,
+                    "ui": {
+                        "editor": "number"
+                    }
+                },
+                "booleanField": {
+                    "title": "Boolean Field",
+                    "type": "boolean"
+                },
+                "HtmlField": {
+                    "title": "Html Field",
+                    "type": "string",
+                    "minLength": 5,
+                    "maxLength": 10,
+                    "ui": {
+                        "editor": "html"
+                    }
+                },
+                "selectField": {
+                    "title": "Select Field",
+                    "type": "string",
+                    "enum": [
+                        "item 1", "item 2"
+                    ],
+                    "ui": {
+                        "editor": "select"
+                    }
+                },
+                "radioField": {
+                    "title": "Radio Field",
+                    "type": "string",
+                    "enum": [
+                        "item 1", "item 2"
+                    ],
+                    "ui": {
+                        "editor": "radio"
+                    }
+                },
+                "stringArray": {
+                    "title": "String Array",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "ui": {
+                        "inlineHint": "this is an inline hint for ..."
+                    }
+                },
+                "objectArray": {
+                    "title": "Object Array",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/objectField"
+                    }
+                }
+            },
+            "required": [
+                "stringField",
+                "booleanField",
+                "selectField",
+                "htmlField"
+            ],
+            "ui": {
+                "inlineHint": "this is an inline hint for main node"
+            },
+            "definitions": {
+                "objectField": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "string",
+                            "enum": [
+                                "STRING",
+                                "CHAR",
+                                "TEXT"
+                            ]
+                        },
+                        "allowNull": {
+                            "type": "boolean"
+                        },
+                        "relation": {
+                            "type": "object",
+                            "properties": {
+                                "tableName": {
+                                    "type": "string"
+                                },
+                                "keyFieldName": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "type"
+                    ]
+                },
+                "API": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "string",
+                            "enum": [
+                                "CREATE",
+                                "READ",
+                                "UPDATE",
+                                "DELETE"
+                            ]
+                        },
+                        "allowedFields": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        var v = {
+            "stringField": "my string",
+            "colorField": "#008000",
+            "dateField": "2019-01-17",
+            "numberField": "6",
+            "booleanField": true,
+            "HtmlField": "this is a <b>html</b>",
+            "selectField": "item 2",
+            "radioField": "item 1",
+            "stringArray": [
+                "s 1",
+                "s 2"
+            ],
+            "objectArray": [
+                {
+                    "name": "my field",
+                    "type": "CHAR",
+                    "allowNull": true,
+                    "relation": {
+                        "tableName": "t1",
+                        "keyFieldName": "f1"
+                    }
+                }
+            ]
+        };
+
+        var je;
+        $(document).ready(function () {
+            je = $("#jsonEditor").jsonEdit({
+                "treeExpandCollapseButton": "true",
+                "schema": s,
+                "value": v,
+                "afterValueChanged": function (newValue, newSchema) {
+                    $("#jsonValue").html(JSON.stringify(newValue, null, 2));
+                    setValidity();
+                },
+                "afterWidgetCreated": function (newValue, newSchema) {
+                    $("#jsonValue").html(JSON.stringify(newValue, null, 2));
+                    setValidity();
+                }
+            });
+        });
+
+        function setValidity() {
+            if (je) $("#jsonValidity").html(JSON.stringify(je.isValid()));
+        }
+
+    </script>
+<style>
+body { background-color: #fafafa; font-family: 'Open Sans'; }
+h1 { margin: 150px auto 50px auto; text-align: center; }
+</style>
+</head>
+
+<body class="vsc-initialized"><div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="https://www.jqueryscript.net/other/form-json-editor.html">Download This Plugin</a></li>
+<li><a href="https://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="./files/f.txt">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<h1>Form Based JSON Editor Demo</h1>
+    <table style="width: 100%;vertical-align: text-top;">
+        <tbody><tr>
+            <td style="width:58%;vertical-align: top;">
+                <div id="jsonEditor"><table class="j-container"><tbody><tr class=""><td colspan="3" data-value-name="" data-path="[&#39;&#39;]" id="jsonEditor_"><table title="this is a text for test the mouse hover" class="j-container"><tbody><tr class="j-oject-value-row"><td class="j-title-col"><span class="j-spacer"></span><label for="jsonEditor_stringField">String Field</label>&nbsp;&nbsp;<span class="j-required-star">*</span></td><td class="j-sep-col"></td><td class="j-body-col"><input type="text" class="j-input j-input-text " data-value-name="stringField" placeholder="Enter string" data-required="true" data-min="5" data-max="10" data-path="[&#39;stringField&#39;]" id="jsonEditor_stringField" data-is-valid="true"><div class="j-validation-help">length of your text must be &gt;4 and &lt;11 characters</div><div class="j-inline-help">this is a text to show we can additional text below the input box</div></td></tr></tbody></table><table class="j-container"><tbody><tr class="j-oject-value-row"><td class="j-title-col"><span class="j-spacer"></span><label for="jsonEditor_colorField">Color Field</label></td><td class="j-sep-col"></td><td class="j-body-col">&nbsp;&nbsp;<input type="color" class="j-input j-input-color " data-value-name="colorField" data-path="[&#39;colorField&#39;]" id="jsonEditor_colorField"></td></tr></tbody></table><table class="j-container"><tbody><tr class="j-oject-value-row"><td class="j-title-col"><span class="j-spacer"></span><label for="jsonEditor_dateField">Date Field</label></td><td class="j-sep-col"></td><td class="j-body-col"><input type="date" class="j-input j-input-date " data-value-name="dateField" data-path="[&#39;dateField&#39;]" id="jsonEditor_dateField" data-is-valid="true"></td></tr></tbody></table><table class="j-container"><tbody><tr class="j-oject-value-row"><td class="j-title-col"><span class="j-spacer"></span><label for="jsonEditor_numberField">Number Field</label></td><td class="j-sep-col"></td><td class="j-body-col"><input type="number" class="j-input j-input-number " data-value-name="numberField" data-min="5" data-max="10" data-path="[&#39;numberField&#39;]" id="jsonEditor_numberField" data-is-valid="true"></td></tr></tbody></table><table class="j-container"><tbody><tr class="j-oject-value-row"><td class="j-title-col"><span class="j-spacer"></span><label for="jsonEditor_booleanField">Boolean Field</label>&nbsp;&nbsp;<span class="j-required-star">*</span></td><td class="j-sep-col"></td><td class="j-body-col"><input type="checkbox" class="j-input j-input-checkbox " data-value-name="booleanField" data-required="true" data-path="[&#39;booleanField&#39;]" id="jsonEditor_booleanField" data-is-valid="true"></td></tr></tbody></table><table class="j-container"><tbody><tr class="j-oject-value-row"><td class="j-title-col"><span class="j-spacer"></span><label for="jsonEditor_HtmlField">Html Field</label></td><td class="j-sep-col"></td><td class="j-body-col"><input type="html" class="j-input j-input-html " data-value-name="HtmlField" data-min="5" data-max="10" data-path="[&#39;HtmlField&#39;]" id="jsonEditor_HtmlField"><div class="j-input j-input-html-div" contenteditable="" data-is-valid="true">this is a <b>html</b></div></td></tr></tbody></table><table class="j-container"><tbody><tr class="j-oject-value-row"><td class="j-title-col"><span class="j-spacer"></span><label for="jsonEditor_selectField">Select Field</label>&nbsp;&nbsp;<span class="j-required-star">*</span></td><td class="j-sep-col"></td><td class="j-body-col"><select class="j-input j-input-select " data-value-name="selectField" data-required="true" data-path="[&#39;selectField&#39;]" id="jsonEditor_selectField" data-is-valid="true"><option value="item 1">item 1</option><option value="item 2">item 2</option></select></td></tr></tbody></table><table class="j-container"><tbody><tr class="j-oject-value-row"><td class="j-title-col"><span class="j-spacer"></span><label for="jsonEditor_radioField">Radio Field</label></td><td class="j-sep-col"></td><td class="j-body-col"><label><input checked="" value="null" class="j-input j-input-radio " type="radio" name="rdo_radioField" data-value-name="radioField" data-path="[&#39;radioField&#39;]" id="jsonEditor_radioField"><span class="j-input-radio-label">null</span></label>&nbsp;&nbsp;&nbsp;<label><input value="item 1" type="radio" class="j-input j-input-radio " name="rdo_radioField" data-value-name="radioField" data-path="[&#39;radioField&#39;]" id="jsonEditor_radioField"><span class="j-input-radio-label">item 1</span></label>&nbsp;&nbsp;&nbsp;<label><input value="item 2" type="radio" class="j-input j-input-radio " name="rdo_radioField" data-value-name="radioField" data-path="[&#39;radioField&#39;]" id="jsonEditor_radioField"><span class="j-input-radio-label">item 2</span></label>&nbsp;&nbsp;&nbsp;</td></tr></tbody></table><table class="j-container"><tbody><tr class="j-array-title-row"><td class="j-title-col"><span class="j-spacer"></span><span class="j-ec">-</span>&nbsp;&nbsp;<label for="jsonEditor_stringArray">String Array</label>&nbsp;<span class="j-add-array-item" data-array-loaded="true" data-template-id="stringArray_1">[+]</span></td><td class="j-sep-col"></td><td class="j-body-col"><div class="j-inline-help">this is an inline hint for ...</div></td></tr><tr class=""><td colspan="3" data-value-name="stringArray" class="j-array-items" data-path="[&#39;stringArray&#39;]" id="jsonEditor_stringArray"><table class="j-container"><tbody><tr class="j-oject-value-row"><td class="j-title-col"><span class="j-spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span><label for="jsonEditor_stringArray_0"> [0] <span class="j-remove-array-item" data-index="0"> X </span></label></td><td class="j-sep-col"></td><td class="j-body-col"><input type="text" class="j-input j-input-text " data-value-name="0" data-path="[&#39;stringArray&#39;][&#39;0&#39;]" id="jsonEditor_stringArray_0" data-is-valid="true"></td></tr></tbody></table><table class="j-container"><tbody><tr class="j-oject-value-row"><td class="j-title-col"><span class="j-spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span><label for="jsonEditor_stringArray_1"> [1] <span class="j-remove-array-item" data-index="1"> X </span></label></td><td class="j-sep-col"></td><td class="j-body-col"><input type="text" class="j-input j-input-text " data-value-name="1" data-path="[&#39;stringArray&#39;][&#39;1&#39;]" id="jsonEditor_stringArray_1" data-is-valid="true"></td></tr></tbody></table></td></tr></tbody></table><table class="j-container"><tbody><tr class="j-array-title-row"><td class="j-title-col"><span class="j-spacer"></span><span class="j-ec">-</span>&nbsp;&nbsp;<label for="jsonEditor_objectArray">Object Array</label>&nbsp;<span class="j-add-array-item" data-array-loaded="true" data-template-id="objectArray_1">[+]</span></td><td class="j-sep-col"></td><td class="j-body-col"></td></tr><tr class=""><td colspan="3" data-value-name="objectArray" class="j-array-items" data-path="[&#39;objectArray&#39;]" id="jsonEditor_objectArray"><table class="j-container"><tbody><tr class="j-oject-title-row"><td class="j-title-col"><span class="j-spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="j-ec">-</span>&nbsp;&nbsp;<label for="jsonEditor_objectArray_0"> [0] <span class="j-remove-array-item" data-index="0"> X </span></label></td><td class="j-sep-col"></td><td class="j-body-col"></td></tr><tr class=""><td colspan="3" data-value-name="0" data-path="[&#39;objectArray&#39;][&#39;0&#39;]" id="jsonEditor_objectArray_0"><table class="j-container"><tbody><tr class="j-oject-value-row"><td class="j-title-col"><span class="j-spacer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><label for="jsonEditor_objectArray_0_name">name</label>&nbsp;&nbsp;<span class="j-required-star">*</span></td><td class="j-sep-col"></td><td class="j-body-col"><input type="text" class="j-input j-input-text " data-value-name="name" data-required="true" data-path="[&#39;objectArray&#39;][&#39;0&#39;][&#39;name&#39;]" id="jsonEditor_objectArray_0_name" data-is-valid="true"></td></tr></tbody></table><table class="j-container"><tbody><tr class="j-oject-value-row"><td class="j-title-col"><span class="j-spacer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><label for="jsonEditor_objectArray_0_type">type</label>&nbsp;&nbsp;<span class="j-required-star">*</span></td><td class="j-sep-col"></td><td class="j-body-col"><select class="j-input j-input-select " data-value-name="type" data-required="true" data-path="[&#39;objectArray&#39;][&#39;0&#39;][&#39;type&#39;]" id="jsonEditor_objectArray_0_type" data-is-valid="true"><option value="STRING">STRING</option><option value="CHAR">CHAR</option><option value="TEXT">TEXT</option></select></td></tr></tbody></table><table class="j-container"><tbody><tr class="j-oject-value-row"><td class="j-title-col"><span class="j-spacer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><label for="jsonEditor_objectArray_0_allowNull">allowNull</label></td><td class="j-sep-col"></td><td class="j-body-col"><input type="checkbox" class="j-input j-input-checkbox " data-value-name="allowNull" data-path="[&#39;objectArray&#39;][&#39;0&#39;][&#39;allowNull&#39;]" id="jsonEditor_objectArray_0_allowNull" data-is-valid="true"></td></tr></tbody></table><table class="j-container"><tbody><tr class="j-oject-title-row"><td class="j-title-col"><span class="j-spacer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="j-ec">-</span>&nbsp;&nbsp;<label for="jsonEditor_objectArray_0_relation">relation</label></td><td class="j-sep-col"></td><td class="j-body-col"></td></tr><tr class=""><td colspan="3" data-value-name="relation" data-path="[&#39;objectArray&#39;][&#39;0&#39;][&#39;relation&#39;]" id="jsonEditor_objectArray_0_relation"><table class="j-container"><tbody><tr class="j-oject-value-row"><td class="j-title-col"><span class="j-spacer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><label for="jsonEditor_objectArray_0_relation_tableName">tableName</label></td><td class="j-sep-col"></td><td class="j-body-col"><input type="text" class="j-input j-input-text " data-value-name="tableName" data-path="[&#39;objectArray&#39;][&#39;0&#39;][&#39;relation&#39;][&#39;tableName&#39;]" id="jsonEditor_objectArray_0_relation_tableName" data-is-valid="true"></td></tr></tbody></table><table class="j-container"><tbody><tr class="j-oject-value-row"><td class="j-title-col"><span class="j-spacer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><label for="jsonEditor_objectArray_0_relation_keyFieldName">keyFieldName</label></td><td class="j-sep-col"></td><td class="j-body-col"><input type="text" class="j-input j-input-text " data-value-name="keyFieldName" data-path="[&#39;objectArray&#39;][&#39;0&#39;][&#39;relation&#39;][&#39;keyFieldName&#39;]" id="jsonEditor_objectArray_0_relation_keyFieldName" data-is-valid="true"></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></div>
+            </td>
+            <td style="width:2%;">&nbsp;</td>
+            <td style="width:40%;vertical-align: top;">
+                <b>json value</b> :
+                <pre id="jsonValue">{
+  "stringField": "my string",
+  "colorField": "#008000",
+  "dateField": "2019-01-17",
+  "numberField": "6",
+  "booleanField": true,
+  "HtmlField": "this is a <b>html</b>",
+  "selectField": "item 2",
+  "radioField": "item 1",
+  "stringArray": [
+    "s 1",
+    "s 2"
+  ],
+  "objectArray": [
+    {
+      "name": "my field",
+      "type": "CHAR",
+      "allowNull": true,
+      "relation": {
+        "tableName": "t1",
+        "keyFieldName": "f1"
+      }
+    }
+  ]
+}</pre>
+
+                <b>Is Valid</b> :
+                <pre id="jsonValidity">true</pre>
+            </td>
+        </tr>
+
+    </tbody></table>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+<div id="imageDownloaderSidebarContainer"><div class="image-downloader-ext-container"><div tabindex="-1" class="b-sidebar-outer"><!----><div id="image-downloader-sidebar" tabindex="-1" role="dialog" aria-modal="false" aria-hidden="true" class="b-sidebar shadow b-sidebar-right bg-light text-dark" style="width: 500px; display: none;"><!----><div class="b-sidebar-body"><div></div></div><!----></div><!----><!----></div></div></div><div id="torrent-scanner-popup" style="display: none;"></div><div id="volume-booster-visusalizer">
+                    <div class="sound">
+                        <div class="sound-icon"></div>
+                        <div class="sound-wave sound-wave_one"></div>
+                        <div class="sound-wave sound-wave_two"></div>
+                        <div class="sound-wave sound-wave_three"></div>
+                    </div>
+                    <div class="segments-box">
+                        <div data-range="1-20" class="segment"><span></span></div>
+                        <div data-range="21-40" class="segment"><span></span></div>
+                        <div data-range="41-60" class="segment"><span></span></div>
+                        <div data-range="61-80" class="segment"><span></span></div>
+                        <div data-range="81-100" class="segment"><span></span></div>
+                    </div>
+                </div></body></html>
