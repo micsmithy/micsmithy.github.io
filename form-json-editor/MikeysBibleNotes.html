@@ -63,6 +63,28 @@ async function handleFormSubmit(event) {
 	}
 }
 
+
+const bodyParser = require("body-parser");
+
+app.use(bodyParser.json());
+
+app.post("/user", (request, response) => {
+
+	/**
+	 * In a real application, the data in `request.body` should
+	 * be validated before its used for anything e.g. inserting
+	 * into a database.
+	 */
+
+	const newUser = {
+		first_name: request.body.first_name,
+		last_name: request.body.last_name
+	};
+
+	response.status(201).json(newUser);
+});
+
+
 const exampleForm = document.getElementById("example-form");
 exampleForm.addEventListener("submit", handleFormSubmit);
 	</script>
