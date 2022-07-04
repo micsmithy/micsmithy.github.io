@@ -1,4 +1,11 @@
-<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaScript - read JSON from URL</title>
+	<!-- link to main stylesheet -->
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script type="text/JavaScript">
 const express = require('express')
 const app = express()
 const port = 3000
@@ -11,3 +18,24 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 </script>
+
+</head>
+
+<body>
+	
+	
+	<div class="container">
+    	<div class="blurb">
+       		<h1>Mike's Bible Notes</h1>
+			<p>I'm here to edit <em>JSON data</em>. <a href="/about">Read more ...</a></p>
+   	</div><!-- /.blurb -->
+	</div><!-- /.container -->
+
+<div id="myData"></div>
+   
+	
+	
+
+	
+</body>
+</html>
