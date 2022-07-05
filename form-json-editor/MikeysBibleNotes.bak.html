@@ -3,7 +3,7 @@
 <head>
 <title>JavaScript - read JSON from URL</title>
 	<!-- link to main stylesheet -->
-	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	
 
@@ -32,32 +32,35 @@
 	.then(response => {
 	   return response.json();
 	})
+//	.then(jsondata => document.getElementById("myData").innerHTML);
+//	.then(jsondata => document.write(jsondata));
 	.then(jsondata => console.log(jsondata));
-	    
 	
 
 
-/* 
-        fetch('MikeysBibleNotes.json')
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                appendData(data);
-            })
-            .catch(function (err) {
-                console.log('error: ' + err);
-            });
-        function appendData(data) {
+ 
+//        fetch("./MikeysBibleNotes.json")
+//            .then(function (response) {
+//                return response.json();
+//            })
+//            .then(function (jsondata) {
+//                appendData(jsondata);
+//            })
+//            .catch(function (err) {
+//                console.log('error: ' + err);
+//            });
+
+        function appendData(jsondata) {
             var mainContainer = document.getElementById("myData");
-            for (var i = 0; i < 10; i++) {
+            for (var i = 0; i < jsondata.length; i++) {
                 var div = document.createElement("div");
-                div.innerHTML = 'Title: ' + data[i].Title + ' Topics: ' + data[i].Topics + ' Topic: ' + data[i].Topic;
+                div.innerHTML = 'Title: ' + jsondata[i].Title +
+					  ' Topics: ' + jsondata[i].Topics + ' Topic: ' + jsondata[i].Topic;
                 mainContainer.appendChild(div);
             }
         }
 
-*/
+
     </script>
 	
 	<footer>
