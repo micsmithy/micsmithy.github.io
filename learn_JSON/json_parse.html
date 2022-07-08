@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <h2>Creating an Object from a JSON String</h2>
+
+    <p id="demo"></p>
+
+    <script>
+      $(document).ready(function () {
+        $.get(
+          "https://micsmithy.github.io/form-json-editor/MikeysBibleNotes.json",
+          function (data) {
+            const obj = JSON.parse(data);
+            document.getElementById("demo").innerHTML =
+              obj.Title + ", " + obj.Email;
+          }
+        );
+      });
+    </script>
+  </body>
+</html>
