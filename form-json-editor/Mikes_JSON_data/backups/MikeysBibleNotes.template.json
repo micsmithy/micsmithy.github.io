@@ -1,0 +1,55 @@
+{
+  "title": "Mikey's Bible Notes",
+  "topics": [
+    {
+      "topic": "New topic",
+      "notes": [
+        {
+          "subtopic": "",
+          "bible_version": "",
+          "note": "",
+          "ref": "",
+          "tags": [
+            "Tag1",
+            "Tag2"
+          ]
+        },
+        {
+          "subtopic": "",
+          "bible_version": "",
+          "note": "",
+          "ref": "",
+          "tags": [
+            "Tag1",
+            "Tag2"
+          ]
+        }
+      ]
+    },
+    {
+      "topic": "New topic",
+      "notes": [
+        {
+          "subtopic": "",
+          "bible_version": "",
+          "note": "",
+          "ref": "",
+          "tags": [
+            "Tag1",
+            "Tag2"
+          ]
+        },
+        {
+          "subtopic": "",
+          "bible_version": "",
+          "note": "",
+          "ref": "",
+          "tags": [
+            "Tag1",
+            "Tag2"
+          ]
+        }
+      ]
+    }
+  ]
+}

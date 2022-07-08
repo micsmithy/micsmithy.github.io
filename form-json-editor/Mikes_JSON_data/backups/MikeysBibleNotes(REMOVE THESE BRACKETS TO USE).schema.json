@@ -1,0 +1,63 @@
+{
+    "type": "object",
+    "properties": {
+        "Title": {
+            "type": "string"
+        },
+        "Topics": {
+            "type": "array",
+            "items": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "Topic": {
+                            "type": "string"
+                        },
+                        "Notes": {
+                            "type": "array",
+                            "items": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "Subtopic": {
+                                            "type": "string"
+                                        },
+                                        "Bible_version": {
+                                            "type": "string"
+                                        },
+                                        "Mike's_Note": {
+                                            "type": "string"
+                                        },
+                                        "Ref": {
+                                            "type": "string"
+                                        },
+                                        "Tags": {
+                                            "type": "array",
+                                            "items": [
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "Subtopic",
+                                        "Mike's_Note"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "required": [
+                        "Topic",
+                        "Notes"
+                    ]
+                }
+            ]
+        }
+    },
+    "required": [
+        "Title",
+        "Topics"
+    ]
+}
