@@ -261,12 +261,9 @@
                ]
             },
             {
-               "Tags": [
-                  "Tag1",
-                  "Tag2"
-               ]
-            },
-            {
+               "Subtopic": "Our sin blocks us from seeing God's face",
+               "Ref": "Isaiah 59:1-2",
+               "Bible_NIV": "Surely the arm of the LORD is not too short to save, nor his ear too dull to hear. But your iniquities have separated you from your God; your sins have hidden his face from you, so that he will not hear.",
                "Tags": [
                   "Tag1",
                   "Tag2"
